@@ -1,6 +1,6 @@
-import { ImageResponse } from "next/og"
+import { ImageResponse } from "next/og";
 
-export const runtime = "edge"
+export const runtime = "edge";
 
 export async function GET() {
   return new ImageResponse(
@@ -94,6 +94,6 @@ export async function GET() {
     {
       width: 1200,
       height: 630,
-    },
-  )
+    }
+  );
 }
