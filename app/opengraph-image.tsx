@@ -1,8 +1,10 @@
+// app/opengraph-image.tsx
+
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export async function GET() {
+const OpenGraphImage = async () => {
   return new ImageResponse(
     <div
       style={{
@@ -28,7 +30,6 @@ export async function GET() {
           zIndex: 1,
         }}
       />
-
       <div
         style={{
           display: "flex",
@@ -45,7 +46,6 @@ export async function GET() {
           height={200}
           style={{ marginBottom: 40 }}
         />
-
         <div
           style={{
             fontSize: 60,
@@ -58,7 +58,6 @@ export async function GET() {
         >
           Orbyte Hosting
         </div>
-
         <div
           style={{
             fontSize: 30,
@@ -70,7 +69,6 @@ export async function GET() {
         >
           Premium non-shared server hosting with 99.9% uptime
         </div>
-
         <div
           style={{
             display: "flex",
@@ -96,4 +94,8 @@ export async function GET() {
       height: 630,
     }
   );
+};
+
+export async function GET() {
+  return OpenGraphImage();
 }
