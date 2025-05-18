@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.animate-glow {
+  animation: glow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+    box-shadow: 0 0 10px 1px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    filter: brightness(1.3);
+    box-shadow: 0 0 20px 4px rgba(59, 130, 246, 0.8);
+  }
+}
+
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes progress-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px 1px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(59, 130, 246, 0.8);
+  }
+}
+
+.progress-bar-glow {
+  animation: progress-pulse 2s ease-in-out infinite;
+}
+
+.delivery-scene {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.delivery-road {
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.delivery-truck {
+  position: absolute;
+  bottom: calc(30% - 10px);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improved mobile support */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem !important;
+    line-height: 2.25rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-12 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .py-20 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .gap-8 {
+    gap: 1rem !important;
+  }
+
+  .mt-16 {
+    margin-top: 2rem !important;
+  }
+
+  .delivery-animation {
+    height: 80px !important;
+  }
+}
