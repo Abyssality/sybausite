@@ -1,9 +1,9 @@
-// app/opengraph-image.tsx
-
 import { ImageResponse } from "next/og";
 
+// Set the runtime for edge function
 export const runtime = "edge";
 
+// Define the OpenGraphImage component
 const OpenGraphImage = async () => {
   return new ImageResponse(
     <div
@@ -96,6 +96,7 @@ const OpenGraphImage = async () => {
   );
 };
 
-export async function GET() {
-  return OpenGraphImage();
-}
+// If this is used for metadata or dynamic route handling, you don’t need the GET here directly.
+// Instead, Next.js handles the server-side rendering automatically for ImageResponse.
+
+export default OpenGraphImage;
